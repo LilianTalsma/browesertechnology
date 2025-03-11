@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Molle&family=Quicksand:wght@300..700&family=Sarina&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -14,6 +17,7 @@
         <h1>Aangifte 2025</h1>
         <h2>erfbelasting</h2>
         </section>
+        <!-- <img src="images/train.png" alt="train"> -->
     </header>
 
     <main>
@@ -45,12 +49,160 @@
 
         <div class="grijs"></div>
 
+        <!-- VRAAG 1 -->
+
         <section class="beginform">
             <section>
             <h3>1</h3>
             <h3>Gegevens van de overledene.</h3>
             </section>
+
+            <fieldset>
+                <legend>1a. Vul hier de gegevens van de overledene in.</legend>
+
+                    <label>Voorletter(s), tussen-
+                        voegsel(s) en achternaam 
+                        <br>
+                        <input type="text" placeholder="Voorletter(s)">
+                        <input type="text" placeholder="Tussenvoegsel(s)">
+                        <input type="text" placeholder="Achternaam">
+                    </label>
+
+                    <br>
+
+                    <label for="BSN">Burgerservicenummer
+                        overledene
+                        
+                        <input type="text" placeholder="123456789">
+                        
+                    </label>
+
+                   
+                        <label for="overlijdingsdatum">Overlijdensdatum</label>
+                        <input type="date" id="datemin" name="datemin" max="2025-3-6">
+
+                  
+                
+            </fieldset>
+
+            <fieldset>
+                <legend>1b. Vul hier de gegevens van de overledene.</legend>
+                <label for="getrouwd">Was de overledene getrouwd of had de overledene een
+                    geregistreerd partner op het moment van overlijden?</label>
+
+                 <br>
+                <label for="nee">
+                <input type="radio" name="partner">
+                Nee. <i>Ga verder met vraag 1c.</i>
+                </label>
+
+                <br>
+
+                <label for="ja" id="radiobuttonja">
+                    <input type="radio" name="partner">
+                    Ja
+                    </label>
+
+                <div hidden data-hideable="true" class="ja1">
+                    <p>Hadden de overledene en diens echtgenoot of
+                        geregistreerd partner huwelijkse of partner schaps-
+                        voorwaarden laten vastleggen in een notariële akte?</p>
+                        <label>
+                            <input type="radio" name="geregistreerd">
+                            Nee
+                        </label>
+                        <br>
+                        <label id="radio2">
+                             <input type="radio" name="geregistreerd">
+                             Ja. <i>Stuur een kopie van de akte mee met de aangifte.</i>
+                        </label>
+                        
+                </div>
+
+                <div hidden data-hideable="true" class="bestand">
+                    <p>Voeg hier uw kope van akte toe</p>
+                    <input type="file">   
+                </div>
+
+            </fieldset>
+
+            <fieldset >
+
+                <legend>1c. Had de overledene een testament.</legend>
+
+                <label for="nee">
+                <input type="radio" name="testament">
+                Nee. <i>Ga verder met vraag 2.</i>
+                </label>
+
+                <br>
+
+                <label for="ja" id="radio3">
+                    <input type="radio" name="testament">
+                    Ja. <i>Vul de gegevens in van de notaris die het testament heeft opgemaakt en de datum van het testament.</i>
+                    </label>
+
+                    <br>
+
+                    <div hidden data-hideable="true" class="testament">
+                        <label for="notaris">
+                            Protocolnummer notaris <input type="number" name="protocolnummer">
+                        </label> 
+                        <br>
+                        <label>Voorletter(s)</label>  , tussen-
+                            voegsel(s) en achternaam 
+                            <br>
+                            <input type="text" placeholder="Voorletter(s)">
+                            <input type="text" placeholder="Tussenvoegsel(s)">
+                            <input type="text" placeholder="Achternaam">
+                      
+
+                        <br>
+
+                        <label for="testamentdatum">Datum van het testament of van de laatste wijziging</label>
+                        <input type="date" id="datemin" name="datemin" max="2025-3-6">
+                    </div>
+
+            </fieldset>
+
+
+
         </section>
+
+
+        <!-- VRAAG 2 -->
+
+        <section class="beginform2">
+
+            <section>
+                <h3>3</h3>
+                <h3>Voor wie doet u aangifte?</h3>
+                </section>
+
+                <fieldset>
+                    <legend>3a. Heeft de overledene in het testament een executeur aangewezen om de erfenis af te handelen?
+                    Dan moet de executeur aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).</legend>
+                    
+                    <label for="executeurtje">
+                        <input type="radio" name="executeur" > 
+                        Ik ben executeur en doe aangifte voor alle personen en/of instellingen die
+                            iets krijgen uit de nalatenschap (verkrijgers).
+                            <br>
+                            <i>Geef aan voor hoeveel verkrijgers u
+                                aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.</i>
+        
+                        <input type="text" name="executeurs" placeholder="Aantal personen" >
+                    </label>
+
+  
+            </fieldset>
+    
+
+        </section>
+
+
+
+  
 
     </main>
     
