@@ -12,10 +12,10 @@ body{
 header{
   display: flex;
   flex-wrap: wrap;
-    padding: 2em 0 2em 2em;
+    /* padding: 2em 0 2em 2em; */
   background-color: #ffffff;
-  border:7px outset;
-  border-color: #2054af;
+  /* border:7px outset; */
+  /* border-color: #2054af; */
   align-items: center;
   margin-top: 1em;
   
@@ -26,10 +26,10 @@ header img:nth-of-type(1){
     margin-left:2em ;
 }
 
-header img:nth-of-type(2){
+/* header img:nth-of-type(2){
     margin-left: auto;
    
-}
+} */
 
 header section{
     margin-left: 6em; 
@@ -43,33 +43,29 @@ header section{
     /* background-color: #CDCDD3; */
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr ;
-    gap:5em;
-    height:22em;
-
-    @media (min-width:800px){
-        grid-template-columns: 1fr 1fr 1fr;
-
-    }
+    /* justify-content: center; */
+    /* grid-template-columns: 1fr ; */
+    /* gap:5em; */
+    /* height:20em; */
     
 }
 
 
 
-.grijs{
-    /* background-color: #CDCDD3; */
-    height: 6em;
-}
 
 .achtergrondboven section{
     background-color: white;
-    border:6px outset;
-    border-color: #2054af;
+    /* border:6px outset; */
+    /* border-color: #2054af; */
+   word-break:keep-all;
     margin-left: 1em;
     margin-right: 1em;
+    justify-self: center;
     border-radius: .5em;
     width:80%;
-    height:15em;
+    min-height: 10em;
+    margin-bottom: 6em;
+    /* height:10em; */
     padding:1.5em;
     margin-top: 6em;
     box-shadow: 14px 16px 11px -9px rgba(0,0,0,0.1);
@@ -96,9 +92,11 @@ header section{
     
     * {
         background-color: #003082;
-        border:7px outset;
+        box-shadow: 14px 16px 11px -9px rgba(0,0,0,0.1);
+
+        /* border:7px outset; */
         border-color: #ffffff;
-        padding: 1.5em;
+        padding: 1.7em;
     }
 }
 
@@ -154,15 +152,34 @@ fieldset:nth-of-type(3):has(label[id="radio3"] input:checked){
     
     * {
         background-color: #003082;
-        border:7px outset;
-        border-color: #ffffff;
-        padding: 1.5em;
+        box-shadow: 14px 16px 11px -9px rgba(0,0,0,0.1);
+
+        /* border:7px outset; */
+        /* border-color: #ffffff; */
+        padding: 1.7em;
     }
 }
 
 .beginform2 p{
     max-width: 25em;
 }
+
+form p{
+    opacity:0;
+    transition:opacity 1s;
+  }
+  
+  form input {
+    border: 2px solid green;
+  }
+  
+  form:has(input:user-invalid) input[name='vraag']{
+    border: 2px solid red;
+  }
+  
+  form:has(input:user-invalid) p {
+    opacity:1;
+  }
 
 
 
