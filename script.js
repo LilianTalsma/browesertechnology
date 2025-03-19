@@ -1,34 +1,51 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    // Retrieve form data from localStorage
-    const formData = JSON.parse(localStorage.getItem('formData')) || {};
 
-    // Populate form fields with retrieved data
-    for (const [key, value] of Object.entries(formData)) {
-        const input = document.querySelector(`[name=${key}]`);
-        if (input) {
-            if (input.type === 'radio' || input.type === 'checkbox') {
-                input.checked = input.value === value;
-            } else {
-                input.value = value;
-            }
-        }
-    }
+if ("localStorage" in window) {
 
-    // Add event listener to save form data on submit
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent form from submitting
+    let voorlettersInput = document.querySelector('input[name="voorletters"]')
+    console.log(voorlettersInput)
 
-        // Collect form data
-        const formData = {};
-        new FormData(form).forEach((value, key) => {
-            formData[key] = value;
-        });
+    voorlettersInput.addEventListener('input', function() {
+        // Sla dat wat ik nu heb ingetypt op in local storage
+        localStorage['voorletters'] = voorlettersInput.value
+    })
 
-        // Save form data to localStorage
-        localStorage.setItem('formData', JSON.stringify(formData));
+    // Zet de value van het voorletters input ding op wat nu in localstorage zit..
+    voorlettersInput.value = localStorage['voorletters']
+}
 
-        // Optionally, you can submit the form here if needed
-        // form.submit();
-    });
-});
+// de if (localStorage in window) zorgt ervoor dat de code niks anders eronder blokkeerd als de browser
+// het niet ondersteund. het is dus hetzelfde als @support in css maar dan voor javascript.
+
+if ("localStorage" in window) {
+
+    let achternaamInput = document.querySelector('input[name="achternaam"]')
+    console.log(achternaamInput)
+
+    achternaamInput.addEventListener('input', function() {
+        // Sla dat wat ik nu heb ingetypt op in local storage
+        localStorage['achternaam'] = achternaamInput.value
+    })
+
+    // Zet de value van het voorletters input ding op wat nu in localstorage zit..
+    achternaamInput.value = localStorage['achternaam']
+}
+
+
+// functie van krijn voor bsn dingetje, ik snap het een beetje.
+// ik heb de value aan gepast naar value.length met 9 cijfers zodat je elk bsn van 9 cijfers kan intypen.
+let i = document.querySelector('input[data-custom-bsn]')
+
+let validate = function() {
+  if (i.value.length == 9) {
+    i.setCustomValidity('')
+  } else {
+    i.setCustomValidity('Wel een bsn invullen')
+  }
+}
+  
+i.addEventListener('input', function() {
+  validate()
+})
+
+
+validate()

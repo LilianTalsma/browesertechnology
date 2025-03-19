@@ -37,12 +37,11 @@ button {
     border-radius: .3em;
     padding: .5em;
     border-color: #70a2f7;
-    position: relative;
-    left: 85%;
-    cursor: pointer;
+        cursor: pointer;
+    display: block; 
 }
 
-button:hover{
+button:hover {
     background-color: #3c64a7;
     transform: translateY(.5px);
 }
@@ -96,7 +95,7 @@ button:hover{
 
 fieldset {
     margin: 2em;
-    border-color: #003082;
+border-color: #003082;
     padding: 1em;
 
     input {
@@ -104,9 +103,9 @@ fieldset {
     }
 }
 
-fieldset:nth-of-type(2):has(label[id="radiobuttonja"] input:checked) {
+fieldset:nth-of-type(2):not(:has(label[id="radiobuttonja"] input:checked)) {
     .ja1 {
-        display: block;
+        display: none;
         margin-bottom: .5em;
     }
 }
@@ -114,7 +113,7 @@ fieldset:nth-of-type(2):has(label[id="radiobuttonja"] input:checked) {
 fieldset:nth-of-type(2):has(label[id="radio2"] input:checked) {
     .bestand {
         display: block;
-        background-color: #ffffff;
+        background-color: #f7f7f7;
         padding: .5em;
         max-width: 25em;
         border: dashed #cbcbcb;
@@ -153,12 +152,36 @@ fieldset:nth-of-type(3):has(label[id="radio3"] input:checked) {
     }
 }
 
-input {
-    border-color: #003082;
+input:user-invalid {
+    border-right: 6px solid red;
+    background-color: #ffe6e6;
+}
 
-    &
 
-    &:user-invalid {
-        border-color: red;
+
+*:has(>input[required]:user-invalid)::after{
+font-family: "Font Awesome 6 Free";
+font-weight: 900;
+content:"\f00d";
+margin-left:-.5em;
+}
+
+input:user-valid {
+    border-right: 6px solid green;
+    background-color: #e6ffe6;
+}
+
+*:has(>input[required]:user-valid)::after{
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content:"\f00c";
+    margin-left:-.5em;
     }
+    
+input{
+    border: .8px solid rgb(118, 118, 118);
+}
+
+fieldset:nth-of-type(4) input{
+    margin-top:1em;
 }

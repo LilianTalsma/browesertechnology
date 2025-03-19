@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+        <!-- Font-awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Molle&family=Quicksand:wght@300..700&family=Sarina&display=swap"
         rel="stylesheet">
 
-    <script src="script.js" defer></script>
+   
 
     <title>Document</title>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -37,6 +40,7 @@
                     Mijn Belastingdienst via belastingdienst.nl/ erfbelasting. Daar leest
                     u ook hoe online aangifte doen werkt.</p>
                 <button>Meer informatie</button>
+
             </section>
         </section>
 
@@ -56,7 +60,7 @@
                             <label>
                                 Voorletter(s)*
                                 <br />
-                                <input type="text" name="voorletters" placeholder="Voorletter(s)" data-required/>
+                                <input type="text" name="voorletters" placeholder="Voorletter(s)" required/>
                             </label>
                         </div>
                         <div>
@@ -70,7 +74,7 @@
                             <label>
                                 Achternaam*
                                 <br />
-                                <input type="text" name="achternaam" placeholder="Achternaam" data-required>
+                                <input type="text" name="achternaam" placeholder="Achternaam" required>
                             </label>
                         </div>
                     </div>
@@ -79,11 +83,11 @@
                     <label for="BSN">
                         <span>Burgerservicenummer overledene*</span>
                         <br />
-                        <input type="text" name="bsn" placeholder="123456789">
+                        <input type="text" name="bsn" placeholder="123456789" required data-custom-bsn>
                     </label>
 
                     <label for="overlijdingsdatum">Overlijdensdatum</label>
-                    <input type="date" id="datemin" name="overlijdingsdatum" max="2025-3-6">
+                    <input type="date" id="datemin" name="overlijdingsdatum" max="2025-03-21" required>
                 </fieldset>
 
                 <fieldset>
@@ -92,19 +96,19 @@
                         geregistreerd partner op het moment van overlijden?</label>
 
                     <br>
-                    <label for="nee">
+                    <label id="radiobuttonnee">
                         <input type="radio" name="partner" value="nee">
                         Nee. <i>Ga verder met vraag 1c.</i>
                     </label>
 
                     <br>
 
-                    <label for="ja" id="radiobuttonja">
+                    <label id="radiobuttonja">
                         <input type="radio" name="partner" value="ja">
                         Ja
                     </label>
 
-                    <div hidden data-hideable="true" class="ja1">
+                    <div data-hideable="true" class="ja1">
                         <p>Hadden de overledene en diens echtgenoot of
                             geregistreerd partner huwelijkse of partner schaps-
                             voorwaarden laten vastleggen in een notariële akte?</p>
@@ -131,14 +135,14 @@
 
                     <legend>1c. Had de overledene een testament.</legend>
 
-                    <label for="nee">
+                    <label>
                         <input type="radio" name="testament" value="nee">
                         Nee. <i>Ga verder met vraag 2.</i>
                     </label>
 
                     <br>
 
-                    <label for="ja" id="radio3">
+                    <label id="radio3">
                         <input type="radio" name="testament" value="ja">
                         Ja. <i>Vul de gegevens in van de notaris die het testament heeft opgemaakt en de datum van het
                             testament.</i>
@@ -177,15 +181,15 @@
                         Dan moet de executeur aangifte doen voor alle personen en/of instellingen die iets krijgen uit de
                         nalatenschap (verkrijgers).</legend>
 
-                    <label for="executeurtje">
-                        <input type="radio" name="executeur" value="ja">
+                    <label>
+                        <input type="checkbox" name="executeur" value="ja">
                         Ik ben executeur en doe aangifte voor alle personen en/of instellingen die
                         iets krijgen uit de nalatenschap (verkrijgers).
                         <br>
                         <i>Geef aan voor hoeveel verkrijgers u
                             aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.</i>
 
-                        <input type="text" name="aantal_executeurs" placeholder="Aantal personen">
+                        <input type="text" name="aantalexecuteurs" placeholder="Aantal personen">
                     </label>
 
                 </fieldset>
@@ -194,7 +198,7 @@
             </form>
         </section>
     </main>
-
+    
 </body>
 
 </html>
