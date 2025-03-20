@@ -1,8 +1,10 @@
 
+// LOCAL STORAGE
+
 if ("localStorage" in window) {
 
     let voorlettersInput = document.querySelector('input[name="voorletters"]')
-    console.log(voorlettersInput)
+    // console.log(voorlettersInput)
 
     voorlettersInput.addEventListener('input', function() {
         // Sla dat wat ik nu heb ingetypt op in local storage
@@ -19,7 +21,7 @@ if ("localStorage" in window) {
 if ("localStorage" in window) {
 
     let achternaamInput = document.querySelector('input[name="achternaam"]')
-    console.log(achternaamInput)
+    // console.log(achternaamInput)
 
     achternaamInput.addEventListener('input', function() {
         // Sla dat wat ik nu heb ingetypt op in local storage
@@ -30,9 +32,47 @@ if ("localStorage" in window) {
     achternaamInput.value = localStorage['achternaam']
 }
 
+// nog een keer geprobeerd voor de bsn input
+
+
+if ("localStorage" in window) {
+
+  let bsnInput = document.querySelector('input[name="bsn"]')
+  // console.log(bsnInput)
+
+  bsnInput.addEventListener('input', function() {
+      localStorage['bsn'] = bsnInput.value
+  })
+
+  bsnInput.value = localStorage['bsn']
+}
+
+// proberen met radiobuttons
+
+// if ("localStorage" in window) {
+
+//   let radioPartnerInput = document.querySelectorAll('input[name=partner]')
+//   // console.log(radioPartnerInput)
+
+//   radioPartnerInput.addEventListener('input', function(){
+//     localStorage['partners'] = radioPartnerInput.value
+//   })
+
+//   radioPartnerInput.value = localStorage['partners']
+
+
+// }
+
+// ik probeerde alle radiobuttons aan te spreken door querySelectorAll te gebruiken anders selecteerde hij alleen de eerste en radio
+// buttons werken samen, ik moest alleen allemaal dingen gebruiken die ik niet helemaal begreep om ze allebij te laten opslaan dus daar wil
+// ik in de toekomst nog naar kijken.
+
+
+
 
 // functie van krijn voor bsn dingetje, ik snap het een beetje.
 // ik heb de value aan gepast naar value.length met 9 cijfers zodat je elk bsn van 9 cijfers kan intypen.
+
 let i = document.querySelector('input[data-custom-bsn]')
 
 let validate = function() {
@@ -49,3 +89,23 @@ i.addEventListener('input', function() {
 
 
 validate()
+
+// zelfde code maar dan voor protocol nummer van 4 cijfers
+// ik wou het nog een keer doen zodat ik het meer begreep.
+
+let j = document.querySelector('input[data-protocolnmr]')
+
+let validates = function() {
+  if (j.value.length == 4) {
+    j.setCustomValidity('')
+  } else {
+    j.setCustomValidity('Wel een protocolnummer invullen')
+  }
+}
+  
+j.addEventListener('input', function() {
+  validates()
+})
+
+
+validates()

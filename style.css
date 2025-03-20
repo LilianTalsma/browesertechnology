@@ -9,6 +9,11 @@ body {
     font-family: "Quicksand", serif;
 }
 
+/* //////////// */
+   /* HEADER */
+/* //////////// */
+
+
 header {
     display: flex;
     justify-content: center;
@@ -22,7 +27,7 @@ header {
 }
 
 header img {
-    max-width: 10em;
+    max-width: 15vw;
     margin-left: 4em;
 }
 
@@ -31,13 +36,17 @@ header section {
     color: #003082;
 }
 
+header h1{
+    max-width: 20vw;
+}
+
 button {
     background-color: #003082;
     color: #ffffff;
     border-radius: .3em;
     padding: .5em;
     border-color: #70a2f7;
-        cursor: pointer;
+    cursor: pointer;
     display: block; 
 }
 
@@ -45,6 +54,10 @@ button:hover {
     background-color: #3c64a7;
     transform: translateY(.5px);
 }
+
+/* ///////////////// */
+   /* UITLEG STUKJE */
+/* //////////////// */
 
 .achtergrondboven {
     width: 100%;
@@ -66,10 +79,16 @@ button:hover {
     box-shadow: 14px 16px 11px -9px rgba(0, 0, 0, 0.1);
 }
 
+/* //////////// */
+   /* FIELDSET 1 */
+/* //////////// */
+
 .flexbox {
     display: flex;
     flex-wrap: wrap;
 }
+
+/* divje een class flexbox gegeven zodat ik de form met achternaam netjes kon positioneren */
 
 .beginform {
     height: 100%;
@@ -93,6 +112,10 @@ button:hover {
     }
 }
 
+/* //////////// */
+   /* FIELDSET 2 */
+/* //////////// */
+
 fieldset {
     margin: 2em;
 border-color: #003082;
@@ -110,9 +133,14 @@ fieldset:nth-of-type(2):not(:has(label[id="radiobuttonja"] input:checked)) {
     }
 }
 
-fieldset:nth-of-type(2):has(label[id="radio2"] input:checked) {
+/* :not:has selector gebruikt want ik had eerst alleen een :has checked en dan display block en dan in de html data-hidden gebruikt
+alleen als de browser geen css ondersteund kan de gebruiker de hele hidden form niet zien. Dus ik heb er nu voor gezorgd dat hij altijd
+visible is als css niet werkt maar dat hij met css is verborgen en als de gebruiker niet een input checked van radio button ja heb
+de display none (dus soort van hidden) is. */
+
+fieldset:nth-of-type(2):not(:has(label[id="radio2"] input:checked)) {
     .bestand {
-        display: block;
+        display: none;
         background-color: #f7f7f7;
         padding: .5em;
         max-width: 25em;
@@ -120,12 +148,16 @@ fieldset:nth-of-type(2):has(label[id="radio2"] input:checked) {
     }
 }
 
-fieldset:nth-of-type(3):has(label[id="radio3"] input:checked) {
+fieldset:nth-of-type(3):not(:has(label[id="radio3"] input:checked)) {
     .testament {
-        display: block;
+        display: none;
         margin: .5em;
     }
 }
+
+/* //////////// */
+/* FIELDSET 4 */
+/* //////////// */
 
 .beginform2 {
     background-color: #ffffff;
@@ -152,19 +184,35 @@ fieldset:nth-of-type(3):has(label[id="radio3"] input:checked) {
     }
 }
 
+fieldset:nth-of-type(4) input{
+    margin-top:1em;
+}
+
+
+/* ///////////////// */
+ /* VALID EN INVALID */
+/* //////////////// */
+
 input:user-invalid {
     border-right: 6px solid red;
     background-color: #ffe6e6;
 }
 
+/* als de input een required in de html heeft, betekend het dat als hij ingevuld is hij valid is en niet ingevuld invalid.
+als input:user-invalid is stijlt hij hem met een rode border */
 
 
 *:has(>input[required]:user-invalid)::after{
 font-family: "Font Awesome 6 Free";
 font-weight: 900;
-content:"\f00d";
+content:"\f00d"; 
 margin-left:-.5em;
 }
+
+/* met een sterretje selecteer ik alles, omdat ik alleen de text velden required heb gegeven spreekt hij alleen die aan
+dus alle dingen met 'required'. Wat ik hier dus zeg ik als de required velden een user-invalid hebben krijgt het veld een ::after
+met font-awesome kon ik de icoontjes makkelijk laten zien zonder image te gebruiken. (hier heeft Tymo me een beetje mee geholpen
+dus credits naar hem). */
 
 input:user-valid {
     border-right: 6px solid green;
@@ -182,6 +230,5 @@ input{
     border: .8px solid rgb(118, 118, 118);
 }
 
-fieldset:nth-of-type(4) input{
-    margin-top:1em;
-}
+/* de border van de inputs nog wat anders gestijlt anders vond ik de velden niet mooi :) */
+

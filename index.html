@@ -51,7 +51,7 @@
                 <h3>Gegevens van de overledene.</h3>
             </section>
 
-            <form data-form-topic="foo">
+            <form>
                 <fieldset>
                     <legend>1a. Vul hier de gegevens van de overledene in.</legend>
 
@@ -108,7 +108,7 @@
                         Ja
                     </label>
 
-                    <div data-hideable="true" class="ja1">
+                    <div class="ja1">
                         <p>Hadden de overledene en diens echtgenoot of
                             geregistreerd partner huwelijkse of partner schaps-
                             voorwaarden laten vastleggen in een notariële akte?</p>
@@ -124,7 +124,7 @@
 
                     </div>
 
-                    <div hidden data-hideable="true" class="bestand">
+                    <div class="bestand">
                         <p>Voeg hier uw kope van akte toe</p>
                         <input type="file" name="akte">
                     </div>
@@ -150,9 +150,9 @@
 
                     <br>
 
-                    <div hidden data-hideable="true" class="testament">
+                    <div class="testament">
                         <label for="notaris">
-                            Protocolnummer notaris <input type="number" name="protocolnummer">
+                            Protocolnummer notaris <input type="text" name="protocolnummer" required data-protocolnmr>
                         </label>
                         <br>
                         <label>Voorletter(s)</label> , tussen-
@@ -195,7 +195,10 @@
                 </fieldset>
 
                 <button type="submit">Formulier versturen</button>
+                <!-- Omdat de button in de form zit word het automatisch een submit button die de pagina herlaad. -->
+
             </form>
+
         </section>
     </main>
     
